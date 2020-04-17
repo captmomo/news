@@ -43,10 +43,12 @@ function addImage(item, article){
   var regex = /(https?:\/\/((?!\").)*\"{0}\.(?:png|jpg|gif))/ig;
   var src = JSON.stringify(item).match(regex);
   //console.log(src);
-  if(item['link'].includes('spectrum.ieee.org')){
+  if(item['link']){
+      if(item['link'].includes('spectrum.ieee.org')){
     //console.log(item['media:content']['$'].url);
     src = [];
     src[0] = 'https://spectrum.ieee.org' + item['media:content']['$'].url;
+    }
   }
   if(src != null){
     src = src[0];
@@ -99,7 +101,10 @@ for(j=0; j<sources.length; j++){
         for(var i=0; i<10; i++){
           // Create Article
           var article = document.createElement('a');
-          article.setAttribute('href', feed.items[i].link);
+          if(feed.items[i].link){
+            article.setAttribute('href', feed.items[i].link);
+          }
+          
           // Append Title
           var headline = document.createElement('h1');
           headline.innerHTML = unescape(feed.items[i].title);
