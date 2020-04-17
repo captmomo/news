@@ -104,10 +104,9 @@ for(j=0; j<sources.length; j++){
           }
           // Create Article
           var article = document.createElement('a');
-
+          if(feed.items[i].link){
             article.setAttribute('href', feed.items[i].link);
-      
-          
+          }
           // Append Title
           var headline = document.createElement('h1');
           headline.innerHTML = unescape(feed.items[i].title);
