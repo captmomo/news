@@ -98,12 +98,15 @@ for(j=0; j<sources.length; j++){
       var d = new Date();
       var feed = parser.parseURL(CORS_PROXY + source, function(err, feed) {
         console.log(feed);
-        for(var i=0; i<10; i++){
+        for(var i=0; i<10; i++){          
+          if(!feed.items[i]){ 
+            continue 
+          }
           // Create Article
           var article = document.createElement('a');
-          if(feed.items[i].link){
+
             article.setAttribute('href', feed.items[i].link);
-          }
+      
           
           // Append Title
           var headline = document.createElement('h1');
