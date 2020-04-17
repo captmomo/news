@@ -115,7 +115,12 @@ for(j=0; j<sources.length; j++){
           // Append Image
           addImage(feed.items[i], article);
           // Append Snippet
-          if(feed.items[i].contentSnippet){
+          if(source.includes('weather.gov.sg')){
+            let contentDiv = document.createElement('div');
+            contentDiv.innerHTML = feed.item[i].content;
+            article.appendChild(contentDiv)
+          }
+          if(feed.items[i].contentSnippet && !source.includes('weather.gov.sg')){
             var snippet = document.createElement('p');
             snippet.innerHTML = unescape(feed.items[i].contentSnippet.slice(0,280));
             article.appendChild(snippet);
