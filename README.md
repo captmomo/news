@@ -18,6 +18,8 @@ Make changes if desired, push to 'dev' branch and merge with gh-pages branch to 
 
 ## Customization
 
+See https://www.npmjs.com/package/rss-parser for how to use RSS parser.
+
 ### Feeds
 
 Feed URLs and their titles are specified in the front matter of each category's page in the format of a javascript array of arrays,
