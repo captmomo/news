@@ -117,7 +117,7 @@ for(j=0; j<sources.length; j++){
           // Append Snippet
           if(source.includes('weather.gov.sg')){
             let contentDiv = document.createElement('div');
-            contentDiv.innerHTML = feed.item[i].content;
+            contentDiv.innerHTML = feed.items[i].content;
             article.appendChild(contentDiv);
           }
           if(feed.items[i].contentSnippet && !source.includes('weather.gov.sg')){
